@@ -1,0 +1,7 @@
+{
+  "extends": ["next/core-web-vitals", "standard", "plugin:tailwindcss/recommended", "prettier"],
+  "rules": {
+    "prefer-const": "off" // Disables the prefer-const rule
+  },
+  "plugins": ["@react-three"]
+}
