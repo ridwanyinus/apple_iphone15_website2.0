@@ -1,9 +1,6 @@
-'use client';
-import { rightImg, watchImg } from '@/utils';
+import { rightImg, watchImg } from '../utils';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import Image from 'next/image';
-
 import VideoCarousel from './VideoCarousel';
 
 const Highlights = () => {
@@ -31,11 +28,11 @@ const Highlights = () => {
           <div className='flex flex-wrap items-end justify-between gap-4'>
             <p className='link'>
               Watch the film
-              <Image src={watchImg} alt='watch icon' className='ml-2' />
+              <img src={watchImg} alt='watch icon' className='ml-2' />
             </p>
             <p className='link'>
               Watch the event
-              <Image src={rightImg} alt='right icon' className='ml-2' />
+              <img src={rightImg} alt='right icon' className='ml-2' />
             </p>
           </div>
         </div>

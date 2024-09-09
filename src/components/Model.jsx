@@ -1,18 +1,17 @@
-'use client';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import ModelView from './ModelView';
 import { useEffect, useRef, useState } from 'react';
-import { yellowImg } from '@/utils';
+import { yellowImg } from '../utils';
+
 import * as THREE from 'three';
 import { Canvas } from '@react-three/fiber';
 import { View } from '@react-three/drei';
-import { models, sizes } from '@/constants';
-import { animateWithGsapTimeline } from '@/utils/animation';
+import { models, sizes } from '../constants';
+import { animateWithGsapTimeline } from '../utils/animation';
 
 const Model = () => {
   const [size, setSize] = useState('small');
-  const [eventSource, setEventSource] = useState(null);
   const [model, setModel] = useState({
     title: 'iPhone 15 Pro in Natural Titanium',
     color: ['#8F8A81', '#FFE7B9', '#6F6C64'],
@@ -49,21 +48,13 @@ const Model = () => {
     }
   }, [size]);
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const rootElement = document.getElementById('canvas-root');
-      console.log(rootElement);
-      setEventSource(rootElement);
-    }
-  }, []);
-
   useGSAP(() => {
     gsap.to('#heading', { y: 0, opacity: 1 });
   }, []);
 
   return (
     <section className='common-padding'>
-      <div className='screen-max-width' id='canvas-root'>
+      <div className='screen-max-width'>
         <h1 id='heading' className='section-heading'>
           Take a closer look.
         </h1>
@@ -73,9 +64,7 @@ const Model = () => {
             <ModelView index={1} groupRef={small} gsapType='view1' controlRef={cameraControlSmall} setRotationState={setSmallRotation} item={model} size={size} />
 
             <ModelView index={2} groupRef={large} gsapType='view2' controlRef={cameraControlLarge} setRotationState={setLargeRotation} item={model} size={size} />
-            {/* {eventSource && (
 
-            )} */}
             <Canvas
               className='w-full h-full'
               style={{
@@ -86,7 +75,7 @@ const Model = () => {
                 right: 0,
                 overflow: 'hidden',
               }}
-              eventSource={eventSource}>
+              eventSource={document.getElementById('root')}>
               <View.Port />
             </Canvas>
           </div>

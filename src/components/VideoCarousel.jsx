@@ -2,7 +2,6 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/all';
 import { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
 import { hightlightsSlides } from '../constants';
 import { pauseImg, playImg, replayImg } from '../utils';
 gsap.registerPlugin(ScrollTrigger);
@@ -68,8 +67,8 @@ const VideoCarousel = () => {
                 window.innerWidth < 760
                   ? '10vw' // mobile
                   : window.innerWidth < 1200
-                    ? '10vw' // tablet
-                    : '4vw', // laptop
+                  ? '10vw' // tablet
+                  : '4vw', // laptop
             });
 
             // set the background color of the progress bar
@@ -195,7 +194,7 @@ const VideoCarousel = () => {
         </div>
 
         <button className='control-btn'>
-          <Image
+          <img
             src={isLastVideo ? replayImg : !isPlaying ? playImg : pauseImg}
             alt={isLastVideo ? 'replay' : !isPlaying ? 'play' : 'pause'}
             onClick={isLastVideo ? () => handleProcess('video-reset') : !isPlaying ? () => handleProcess('play') : () => handleProcess('pause')}
