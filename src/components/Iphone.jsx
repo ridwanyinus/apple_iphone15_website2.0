@@ -5,10 +5,11 @@ License: CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
 Source: https://sketchfab.com/3d-models/apple-iphone-15-pro-max-black-df17520841214c1792fb8a44c6783ee7
 Title: Apple iPhone 15 Pro Max Black
 */
-import { useEffect } from 'react';
-import { useRef } from 'react';
-import { useGLTF, useTexture } from '@react-three/drei';
+
 import * as THREE from 'three';
+import React, { useEffect, useRef } from 'react';
+import { useGLTF, useTexture } from '@react-three/drei';
+
 function Model(props) {
   const { nodes, materials } = useGLTF('/models/scene.glb');
 
@@ -41,11 +42,9 @@ function Model(props) {
       <mesh castShadow receiveShadow geometry={nodes.CfghdUoyzvwzIum.geometry} material={materials.jpGaQNgTtEGkTfo} scale={0.01} />
       <mesh castShadow receiveShadow geometry={nodes.DjdhycfQYjKMDyn.geometry} material={materials.ujsvqBWRMnqdwPx} scale={0.01} />
       <mesh castShadow receiveShadow geometry={nodes.usFLmqcyrnltBUr.geometry} material={materials.sxNzrmuTqVeaXdg} scale={0.01} />
-
       <mesh castShadow receiveShadow geometry={nodes.xXDHkMplTIDAXLN.geometry} material={materials.pIJKfZsazmcpEiU} scale={0.01}>
         <meshStandardMaterial roughness={1} map={texture} />
       </mesh>
-
       <mesh castShadow receiveShadow geometry={nodes.vELORlCJixqPHsZ.geometry} material={materials.zFdeDaGNRwzccye} scale={0.01} />
       <mesh castShadow receiveShadow geometry={nodes.EbQGKrWAqhBHiMv.geometry} material={materials.TBLSREBUyLMVtJa} scale={0.01} />
       <mesh castShadow receiveShadow geometry={nodes.EddVrWkqZTlvmci.geometry} material={materials.xNrofRCqOXXHVZt} scale={0.01} />
@@ -66,4 +65,5 @@ function Model(props) {
 }
 
 export default Model;
+
 useGLTF.preload('/models/scene.glb');
