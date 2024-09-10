@@ -6,19 +6,13 @@ import * as Sentry from '@sentry/react';
 
 const App = () => {
   return (
-    <button className='text-white' onClick={() => methodDoesNotExist()}>
-      Break the world
-    </button>
+    <main className='bg-black'>
+      <Navbar />
+      <Hero />
+      <Highlights />
+      <Model />
+    </main>
   );
-
-  // return (
-  //   <main className='bg-black'>
-  //     <Navbar />
-  //     <Hero />
-  //     <Highlights />
-  //     <Model />
-  //   </main>
-  // );
 };
 
 export default Sentry.withProfiler(App); // App;
