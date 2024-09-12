@@ -20,7 +20,7 @@ const Footer = () => {
         <div className='flex md:flex-row flex-col md:items-center justify-between'>
           <p className='text-xs text-gray font-semibold'>Copyright @ 2024 Apple Inc. All rights reserved. </p>
 
-          <div className='flex'>
+          <div className='flex flex-wrap'>
             {footerLinks.map((link, i) => (
               <p key={link} className='text-xs text-gray font-semibold'>
                 {link} {i !== footerLinks.length - 1 && <span className='mx-2'> | </span>}
